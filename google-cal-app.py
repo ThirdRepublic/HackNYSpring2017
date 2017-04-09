@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, session
 from flask_oauth import OAuth
 from urllib2 import Request, urlopen, URLError
+from utilityfx import todayEvents
 import json
 import datetime
 
@@ -48,13 +49,14 @@ def index():
           except URLError, e:
               if e.code != 404:
                   raise e
-        # filter out for today's events
-        #'''
-        eventName = events[0]['summary']
-        eventTime = events[0]['start']['dateTime']
 
-        return str(eventTime)
-        #'''
+        #eventName = events[0]['summary']
+        #eventTime = events[0]['start']['dateTime']
+        
+        events_dict = todayEvents(events)
+        
+        return str(events_dict)
+
     except URLError, e:
         if e.code == 401:
             # Unauthorized - bad token
