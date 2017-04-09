@@ -1,7 +1,7 @@
 {% block style %}
     <style>
       body{
-        background-image: url("static/background.png");
+        background-image: url("/static/img/background.png");
         background-size: cover;
         background-repeat: no-repeat;
         font-family: 'Quicksand', sans-serif;
@@ -69,30 +69,13 @@
     </style>
 {% endblock %}
 {% block scripts %}
-<script>
-      $(document).ready(function(){
-          $("#registration").show();
-          $("#login").hide();
-          $(".signin").click(function(){
-            $("#registration").hide();
-            $(".signin").css("color", "blue");
-            $(".reg").css("color", "orange");
-            $("#login").show();
-          });
-          $(".reg").click(function(){
-            $("#registration").show();
-            $("#login").hide();
-            $(".signin").css("color", "orange");
-            $(".reg").css("color", "blue");
-          });
-        });
-    </script>
+
 {% endblock %}
 
 {% block content %}
     <div id = "body">
       <div class = "contain">
-        <div class = "logo"><img src = "static/logo.png" alt = "logo"></div>
+        <div class = "logo"><img src = "/static/img/logo.png" alt = "logo"></div>
         <div id = "form">
           <div class = "toggle"><div class = "signin">Sign In</div> | <div class = "reg">Register</div></div>
           <div id = "registration">
@@ -116,4 +99,22 @@
         </div>
       </div>
     </div>
+    <script>
+      $(document).ready(function(){
+          $("#registration").show();
+          $("#login").hide();
+          $(".signin").click(function(){
+            $("#registration").hide();
+            $(".signin").css("color", "blue");
+            $(".reg").css("color", "orange");
+            $("#login").show();
+          });
+          $(".reg").click(function(){
+            $("#registration").show();
+            $("#login").hide();
+            $(".signin").css("color", "orange");
+            $(".reg").css("color", "blue");
+          });
+        });
+    </script>
 {% endblock %}
