@@ -1,11 +1,16 @@
-from flask import *
+from flask import Flask
 
-app = Flask(__name__) 
-app.config.from_object(__name__)
+from os import urandom
 
-@app.route("/main.html")
-def main():
-    return render_template('index.html', data="hello")
+def create_app():
+    app = Flask(__name__)
+    app.secret_key = urandom(24)
+    
+    #from utils import init_utils, init_errors
+    from core import core
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    #init_utils(app)
+    #init_errors(app)
+    app.register_blueprint(core)
+
+    return app

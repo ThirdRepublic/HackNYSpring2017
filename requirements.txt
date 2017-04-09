@@ -1,0 +1,10 @@
+Flask
+Flask-Session
+Flask-Caching
+flask_oauth
+six
+itsdangerous
+requests
+google-api-python-client
+twilio
+nytimes
