@@ -74,7 +74,9 @@
         width: 250px;
         margin: 0 auto;
       }
-      
+      #output{
+		color: orange;
+	  }
     </style>
     <script>
       $(document).ready(function(){
@@ -110,7 +112,8 @@
               <input type = "text" name = "zipcode" placeholder = "Zipcode"><br>
               <input type = "text" name = "gmail" placeholder = "Gmail"><br>
               <input type = "password" name = "password" placeholder = "Password"><br>
-              <input type = "submit" name = "register" value = "Register" class = "submit">
+              <input type = "submit" name = "register" value = "Register" class = "submit"><br>
+			  <span id = "output">{{msg}}</span>
             </form>
           </div>
           <div id = "login">
