@@ -5,4 +5,4 @@ response = requests.get("https://api.nytimes.com/svc/topstories/v2/home.json", p
 
 results = json.loads(response.content)['results']
 ##List containing dictionaries of title and abstracts of top articles in given subject 
-articles = [{'Title':x['title'],'Abstract':x['abstract']} for x in results]
+toparticles = [{'Title':x['title'],'Abstract':x['abstract']} for x in results][:3]
