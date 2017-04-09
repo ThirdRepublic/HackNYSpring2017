@@ -5,7 +5,6 @@ import json
 import time
 
 from forecast import *
-import gcalendar
 import nyt
 from utils import *
 
