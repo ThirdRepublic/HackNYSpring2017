@@ -1,7 +1,7 @@
 {% block style %}
     <style>
       body{
-        background-image: url("/static/img/background.png");
+        background-image: url("static/background.png");
         background-size: cover;
         background-repeat: no-repeat;
         font-family: 'Quicksand', sans-serif;
@@ -63,11 +63,13 @@
         width: 250px;
         margin: 0 auto;
       }
-      
+      #output{
+    color: orange;
+    }
     </style>
 {% endblock %}
 {% block scripts %}
-    <script>
+<script>
       $(document).ready(function(){
           $("#registration").show();
           $("#login").hide();
@@ -90,7 +92,7 @@
 {% block content %}
     <div id = "body">
       <div class = "contain">
-        <div class = "logo"><img src = "/static/img/logo.png" alt = "logo"></div>
+        <div class = "logo"><img src = "static/logo.png" alt = "logo"></div>
         <div id = "form">
           <div class = "toggle"><div class = "signin">Sign In</div> | <div class = "reg">Register</div></div>
           <div id = "registration">
@@ -100,7 +102,8 @@
               <input type = "text" name = "zipcode" placeholder = "Zipcode"><br>
               <input type = "text" name = "gmail" placeholder = "Gmail"><br>
               <input type = "password" name = "password" placeholder = "Password"><br>
-              <input type = "submit" name = "register" value = "Register" class = "submit">
+              <input type = "submit" name = "register" value = "Register" class = "submit"><br>
+        <span id = "output">{{ msg }}</span>
             </form>
           </div>
           <div id = "login">

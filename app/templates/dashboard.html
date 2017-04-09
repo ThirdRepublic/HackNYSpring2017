@@ -22,16 +22,74 @@
             }
             #mainBody{
                 position: fixed;
-                left: 300px;
-                top: 0px;
+                left: 320px;
+                top: 20px;
                 bottom: 0px;
                 right: 0px;
             }
+            .ttl{
+                font-size: 24pt;
+                color: orange;
+            }
         </style>
 {% endblock %}
+
+{% block scripts %}
+<script>
+      $(document).ready(function(){
+          $("#alarmBody").show();
+          $("#newsBody").hide();
+          $("#aboutBody").hide();
+          $("#helpBody").hide();
+          $("#alarm").css("color", "blue");
+          $("#alarm").click(function(){
+              $("#alarm").css("color", "blue");
+              $("#help").css("color", "white");
+              $("#news").css("color", "white");
+              $("#about").css("color", "white");
+              $("#alarmBody").show();
+              $("#newsBody").hide();
+              $("#aboutBody").hide();
+              $("#helpBody").hide();
+          });
+          $("#news").click(function(){
+              $("#alarm").css("color", "white");
+              $("#help").css("color", "white");
+              $("#news").css("color", "blue");
+              $("#about").css("color", "white");
+              $("#alarmBody").hide();
+              $("#newsBody").show();
+              $("#aboutBody").hide();
+              $("#helpBody").hide();
+          });
+          $("#help").click(function(){
+              $("#alarm").css("color", "white");
+              $("#help").css("color", "blue");
+              $("#news").css("color", "white");
+              $("#about").css("color", "white");
+              $("#alarmBody").hide();
+              $("#newsBody").hide();
+              $("#aboutBody").hide();
+              $("#helpBody").show();
+          });
+          $("#about").click(function(){
+              $("#alarm").css("color", "white");
+              $("#help").css("color", "white");
+              $("#news").css("color", "white");
+              $("#about").css("color", "blue");
+              $("#alarmBody").hide();
+              $("#newsBody").hide();
+              $("#aboutBody").show();
+              $("#helpBody").hide();
+          });
+        });
+    </script>
+
+{% endblock %}
+
 {% block content %}
         <div id = "sidebar">
-            <div id = "logo"><img src = "/static/img/logo.png" alt = "logo"></div>
+            <div id = "logo"><img src = "static/logo.png" alt = "logo"></div>
             <div id = "alarm">Alarm</div>
             <div id = "news">News</div>
             <div id = "about">About</div>
@@ -40,17 +98,27 @@
         <div id = "mainBody">
             <div id = "alarmBody">
                 <div class = "ttl">Alarm</div>
-                <form action = "." method = "POST">
-                    Current Alarm: {{ alarmTime }}<br>
+                <form action = "dashboard" method = "POST">
+                    Current Alarm: {{alarmTime}}<br>
                     <input type = "time" name = "alarmTime">
-                    <input type = "submit" name = "setAlarm" value = "Set Alarm">
+                    <input type = "submit" name = "setAlarm" value = "Set Alarm"><br>
+                    <span class = "msg">{{alarmMsg}}</span>
                 </form>
             </div>
             <div id = "newsBody">
                 <div class = "ttl">News</div>
-                <form action = "." method = "POST">
-                    <input type = "checkbox" name = "category" value = "">-Insert Category Name
-                    <input type = "submit" name = "setNews" value = "Submit">
+                <form action = "dashboard" method = "POST">
+                    <input type = "checkbox" name = "category" value = "world">World
+                    <input type = "checkbox" name = "category" value = "nation">Nation
+                    <input type = "checkbox" name = "category" value = "politics">Politics<br>
+                    <input type = "checkbox" name = "category" value = "business">Business
+                    <input type = "checkbox" name = "category" value = "technology">Technology
+                    <input type = "checkbox" name = "category" value = "science">Science<br>
+                    <input type = "checkbox" name = "category" value = "health">Health
+                    <input type = "checkbox" name = "category" value = "art">Art
+                    <input type = "checkbox" name = "category" value = "food">Food
+                    <input type = "submit" name = "setNews" value = "Submit"><br>
+                    <span class = "msg">{{newsMsg}}</span>
                 </form>
             </div>
             <div id = "aboutBody">
