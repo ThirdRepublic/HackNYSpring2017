@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Deffro</title>
+        <style>     
+            body{
+              font-family: 'Quicksand', sans-serif;
+            }
+            #sidebar{
+                width: 300px;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                bottom: 0px;
+                background-color: orange;
+            }
+            #logo img{
+                width: 280px;
+                margin-left: 7px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "sidebar">
+            <div id = "logo"><img src = "static/logo.png" alt = "logo"></div>
+            <div id = "alarm">Alarm</div>
+            <div id = "news">News</div>
+            <div id = "about">About</div>
+            <div id = "help">Help</div>
+        </div>
+        <div id = "mainBody">
+            <div id = "alarmBody">
+                <div class = "ttl">Alarm</div>
+                <form action = "." method = "POST">
+                    Current Alarm: {{alarmTime}}<br>
+                    <input type = "time" name = "alarmTime">
+                    <input type = "submit" name = "setAlarm" value = "Set Alarm">
+                </form>
+            </div>
+            <div id = "newsBody">
+                <div class = "ttl">News</div>
+                <form action = "." method = "POST">
+                    <input type = "checkbox" name = "category" value = "">-Insert Category Name
+                    <input type = "submit" name = "setNews" value = "Submit">
+                </form>
+            </div>
+            <div id = "aboutBody">
+                <div class = "ttl">About</div>
+                <div class = "txt"> </div>
+            </div>
+            <div id = "helpBody">
+                <div class = "ttl">Help</div>
+                <div class = "txt"> </div>
+            </div>
+        </div>
+    </body>
+</html>
